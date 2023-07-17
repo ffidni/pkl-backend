@@ -27,7 +27,8 @@ class TempatPklService
         $validator = Validator::make($data, [
             "users_id" => "required",
             "latitude" => "required|string",
-            "longitude" => "required|string"
+            "longitude" => "required|string",
+            "nama_tempat" => "required|string"
         ]);
         if ($validator->fails()) {
             $validatorData = validatorErrorHandler($validator);
@@ -52,7 +53,8 @@ class TempatPklService
         if ($tempat->exists()) {
             $validator = Validator::make($data, [
                 "latitude" => "required|string",
-                "longitude" => "required|string"
+                "longitude" => "required|string",
+                "nama_tempat" => "required|string"
             ]);
             if ($validator->fails()) {
                 $validatorData = validatorErrorHandler($validator);

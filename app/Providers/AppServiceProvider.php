@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(\L5Swagger\L5SwaggerServiceProvider::class);
         $this->app->bind(TugasService::class, TugasService::class);
         $this->app->bind(JurnalService::class, JurnalService::class);
         $this->app->bind(TempatPklService::class, TempatPklService::class);

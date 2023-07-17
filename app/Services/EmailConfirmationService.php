@@ -47,15 +47,15 @@ class EmailConfirmationService
         $currentDate = Carbon::now();
         $tokenData = EmailConfirmationModel::where("token", $token)->where("expires_at", ">", $currentDate)->first();
         if (!$tokenData) {
-            throw new ApiException(Response::HTTP_BAD_REQUEST, "Token tidak ditemukan/expired");
+            return view("activate_success")->with(["error" => "Token tidak ditemukan/expired"]);
         }
         $user = User::where("id", $tokenData->user_id)->first();
         if (!$user) {
-            throw new ApiException(Response::HTTP_NOT_FOUND, "Akun tidak ditemukan");
+            return view("activate_success")->with(["error" => "Akun tidak ditemukan"]);
         }
         $user->email_verified = 1;
         $user->save();
         $tokenData->delete();
-        return "Email: " . $user->email . " berhasil dikonfirmasi!";
+        return view("activate_success");
     }
 }

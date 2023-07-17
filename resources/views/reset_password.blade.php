@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ asset('main-logo.png') }}" type="image/png">
     <title>ePKL - Reset Password</title>
     <link rel="stylesheet" href="{{asset('styles/reset.css')}}">
-    <link rel="stylesheet" href="{{asset('styles/reset_password.css')}}">
+    <link rel="stylesheet" href="{{asset('styles/styles.css')}}">
 </head>
 <body>
     <div class="form-container">
